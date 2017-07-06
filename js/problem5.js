@@ -34,3 +34,23 @@
  */
 
 // Write your JavaScript here
+
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function fixUrduText(text){
+    var advertisingText = "";
+    var correctAdvertisingText = "";
+
+    //output advertising text
+    for (var i = 0; i < text.length; i++){
+        for (var j = 0; j < text[i].length; j++){
+            advertisingText += ((text[i][j]) + " ");
+        }
+    }
+    changeElementText("#linesOfText", advertisingText);
+
+    //reverse the second string
+    
+}

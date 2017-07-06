@@ -13,6 +13,10 @@ $(document).ready(function() {
     countMoneyInIndianNotes([10, 20, 100]);
 
     // Problem 5
-    // call your problem 5 code here
+    var text = [];
+    text.push(["A", "B", "C"]);
+    text.push(["D", "E", "F"]);
+    text.push(["G", "H", "I"]);
+    fixUrduText(text);
 
 });
