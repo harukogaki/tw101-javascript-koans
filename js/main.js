@@ -10,7 +10,7 @@ $(document).ready(function() {
     fareForRide(6, 8, false);
 
     // Problem 4
-    countMoneyInIndianNotes([20, 50, 10, 20, 13, 500]);
+    countMoneyInIndianNotes([10, 20, 100]);
 
     // Problem 5
     // call your problem 5 code here

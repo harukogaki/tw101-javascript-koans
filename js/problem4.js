@@ -36,12 +36,33 @@ function countMoneyInIndianNotes (notes){
     //Output Rs notes given to html
     var str = "";
     for (var i = 0; i < notes.length; i++){
-       str += (notes[i] + " ");
+        str += notes[i];
+
+        //add a comma only if not the last note
+        if (i != (notes.length - 1))
+           str += ","
+
+       str += " ";
     }
     changeElementText("#notesGiven", str);
 
-    //Count the the total Rs notes
-    var total = 500;
+    //Object containing valid RS Notes: the ones we should be counting
+    var validNotes = {};
+    validNotes[5] = true;
+    validNotes[10] = true;
+    validNotes[20] = true;
+    validNotes[50] = true;
+    validNotes[100] = true;
+    validNotes[500] = true;
+    validNotes[1000] = true;
+
+    var total = 0;
+    for (var i = 0; i < notes.length; i++){
+        if (validNotes[notes[i]])
+            total += notes[i];
+        else
+            break;
+    }
 
     changeElementText("#totalRs", total)
 }
