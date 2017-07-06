@@ -27,3 +27,21 @@
 */
 
 // Write your JavaScript here
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function countMoneyInIndianNotes (notes){
+
+    //Output Rs notes given to html
+    var str = "";
+    for (var i = 0; i < notes.length; i++){
+       str += (notes[i] + " ");
+    }
+    changeElementText("#notesGiven", str);
+
+    //Count the the total Rs notes
+    var total = 500;
+
+    changeElementText("#totalRs", total)
+}
