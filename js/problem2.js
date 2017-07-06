@@ -49,7 +49,6 @@ function isTrafficJam(numberOfAutoRickshaws, isAfterEightPm) {
     }
     else{
         if (numberOfAutoRickshaws > 40){
-            console.log("Hiya");
             answer += "yes";
         }
         else

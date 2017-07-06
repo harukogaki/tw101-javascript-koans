@@ -46,17 +46,18 @@ function processLineOfText(numLine, element, lineOfText, linesToBeReversed){
     var line_output = "";
     var line = {};
     line.text = [];
-    line.isReversed = (linesToBeReversed[numLine]);
+    line.isReversed = (linesToBeReversed[numLine]) ? true : false;
+
     for (var i = 0; i < lineOfText.length; i++){
         line_output += (lineOfText[i] + " ");
         line.text.push(lineOfText[i] );
     }
-    changeElementText(element, line_output);
 
+    changeElementText(element, line_output);
     return line;
 }
 
-function fixUrduText(text, linesToBeReversed){
+function fixAdvertisementText(text, linesToBeReversed){
     var advertisement = [];    //structure for storing advertisement info
     advertisement.wordCount = 0;
 
