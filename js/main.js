@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     // Problem 3
     fareForRide(6, 8, false);
-
+    
     // Problem 4
     countMoneyInIndianNotes([10, 20, 100]);
 
