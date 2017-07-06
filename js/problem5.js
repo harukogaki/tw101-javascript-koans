@@ -34,23 +34,68 @@
  */
 
 // Write your JavaScript here
-
 function changeElementText(element, answer) {
     $(element).text(answer);
 }
 
-function fixUrduText(text){
-    var advertisingText = "";
-    var correctAdvertisingText = "";
-
-    //output advertising text
-    for (var i = 0; i < text.length; i++){
-        for (var j = 0; j < text[i].length; j++){
-            advertisingText += ((text[i][j]) + " ");
-        }
+//Formats the output for a single line... updates html
+//creates an object containing the words themselves
+//and whether they should be reversed or not
+//returns said object
+function processLineOfText(numLine, element, lineOfText, linesToBeReversed){
+    var line_output = "";
+    var line = {};
+    line.text = [];
+    line.isReversed = (linesToBeReversed[numLine]);
+    for (var i = 0; i < lineOfText.length; i++){
+        line_output += (lineOfText[i] + " ");
+        line.text.push(lineOfText[i] );
     }
-    changeElementText("#linesOfText", advertisingText);
+    changeElementText(element, line_output);
+
+    return line;
+}
+
+function fixUrduText(text, linesToBeReversed){
+    var advertisement = [];    //structure for storing advertisement info
+    advertisement.wordCount = 0;
+
+
+    var line = processLineOfText(1, "#firstLine", text[0], linesToBeReversed);
+    advertisement.push(line);
+    advertisement.wordCount += (line.text.length);
+
+    line = processLineOfText(2, "#secondLine", text[1], linesToBeReversed);
+    advertisement.push(line);
+    advertisement.wordCount += (line.text.length);
+
+    line = processLineOfText(3,"#thirdLine", text[2], linesToBeReversed);
+    advertisement.push(line);
+    advertisement.wordCount += (line.text.length);
+
 
     //reverse the second string
-    
+    var correctedText = "";
+
+    //loop through every line of text
+    for (var i = 0; i < advertisement.length; i++){
+
+        var currLine = advertisement[i].text;
+
+        //determine if line should be reversed or not
+        if (linesToBeReversed[i+1]){
+            for (var j = (currLine.length - 1); j >= 0; j--){
+                correctedText += (currLine[j] + " ");
+            }
+        }
+        else{
+            for (var j = 0; j < currLine.length; j++){
+                correctedText += (currLine[j] + " ");
+            }
+        }
+    }
+
+    changeElementText("#correctedLineOfText", correctedText);
+    changeElementText("#numberOfWords", advertisement.wordCount);
+    console.log(advertisement);
 }

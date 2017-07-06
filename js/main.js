@@ -14,9 +14,12 @@ $(document).ready(function() {
 
     // Problem 5
     var text = [];
-    text.push(["A", "B", "C"]);
-    text.push(["D", "E", "F"]);
-    text.push(["G", "H", "I"]);
-    fixUrduText(text);
+    text.push(["zara", "dhyaan", "dein"]);
+    text.push(["mazarat", "chahenge"]);
+    text.push(["attention", "please"]);
+    linesToBeReversed = {};
+    linesToBeReversed[2] = true;
+
+    fixUrduText(text, linesToBeReversed);
 
 });
